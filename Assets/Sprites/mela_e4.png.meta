@@ -1,0 +1,920 @@
+fileFormatVersion: 2
+guid: 5a2d7671a5e80b747ac9f538f3b8de60
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2587417645089052608
+    second: mela_e4_0
+  - first:
+      213: 946775324914958767
+    second: mela_e4_1
+  - first:
+      213: 745589573848782616
+    second: mela_e4_2
+  - first:
+      213: -6666311187033804947
+    second: mela_e4_3
+  - first:
+      213: -4435279088944299581
+    second: mela_e4_4
+  - first:
+      213: -23870768463794683
+    second: mela_e4_5
+  - first:
+      213: 4646730617007576584
+    second: mela_e4_6
+  - first:
+      213: 8684815007184572448
+    second: mela_e4_7
+  - first:
+      213: 5634572925088663004
+    second: mela_e4_8
+  - first:
+      213: -7946559451014651738
+    second: mela_e4_9
+  - first:
+      213: -2789074629606467069
+    second: mela_e4_10
+  - first:
+      213: 4761333470388442712
+    second: mela_e4_11
+  - first:
+      213: 210052300289995331
+    second: mela_e4_12
+  - first:
+      213: -5196520119476464042
+    second: mela_e4_13
+  - first:
+      213: -5634255449716012298
+    second: mela_e4_14
+  - first:
+      213: -9172892824444868871
+    second: mela_e4_15
+  - first:
+      213: 2285409516946757084
+    second: mela_e4_16
+  - first:
+      213: 8647607594038141676
+    second: mela_e4_17
+  - first:
+      213: 5191451582519445824
+    second: mela_e4_18
+  - first:
+      213: -5511531707643001625
+    second: mela_e4_19
+  - first:
+      213: -5413078447903818010
+    second: mela_e4_20
+  - first:
+      213: 6284676660826868984
+    second: mela_e4_21
+  - first:
+      213: -2643540793437131525
+    second: mela_e4_22
+  - first:
+      213: -5754237604045977026
+    second: mela_e4_23
+  - first:
+      213: -5144548639284384782
+    second: mela_e4_24
+  - first:
+      213: -8043162397508867339
+    second: mela_e4_25
+  - first:
+      213: -5251694447884067360
+    second: mela_e4_26
+  - first:
+      213: -3930336553434900181
+    second: mela_e4_27
+  - first:
+      213: -469012391446792482
+    second: mela_e4_28
+  - first:
+      213: -3256175443654674546
+    second: mela_e4_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mela_e4_0
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 204
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 048a3ea4c55a71cd0800000000000000
+      internalID: -2587417645089052608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_1
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 211
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa149ab442f932d00800000000000000
+      internalID: 946775324914958767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 221
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 817dd7164cdd85a00800000000000000
+      internalID: 745589573848782616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_3
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 171
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6f23a68b418c73a0800000000000000
+      internalID: -6666311187033804947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_4
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 183
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c1c1cfea29b272c0800000000000000
+      internalID: -4435279088944299581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_5
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 191
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50e233d99a13baff0800000000000000
+      internalID: -23870768463794683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_6
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 176
+        width: 24
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8061ba170e08c7040800000000000000
+      internalID: 4646730617007576584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_7
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 153
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 020d7332c39a68870800000000000000
+      internalID: 8684815007184572448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_8
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 150
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd581fcd836023e40800000000000000
+      internalID: 5634572925088663004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_9
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 146
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a0afbf284628b190800000000000000
+      internalID: -7946559451014651738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_10
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 155
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30a904ac6673b49d0800000000000000
+      internalID: -2789074629606467069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_11
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 141
+        width: 24
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8565eaf8097a31240800000000000000
+      internalID: 4761333470388442712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_12
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 128
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 342f90744714ae200800000000000000
+      internalID: 210052300289995331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_13
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 123
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6565f62db7042e7b0800000000000000
+      internalID: -5196520119476464042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_14
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 107
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa4ed1258a1fc1b0800000000000000
+      internalID: -5634255449716012298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_15
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 129
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f6eb34839653b080800000000000000
+      internalID: -9172892824444868871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_16
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 116
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd598e7d8d767bf10800000000000000
+      internalID: 2285409516946757084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_17
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 97
+        width: 42
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce22d9f2a49720870800000000000000
+      internalID: 8647607594038141676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_18
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 86
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04906b475bdbb0840800000000000000
+      internalID: 5191451582519445824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_19
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 106
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e403adfc1b1383b0800000000000000
+      internalID: -5511531707643001625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_20
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 94
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eebe53d4d1e0e4b0800000000000000
+      internalID: -5413078447903818010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_21
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 103
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc06c81028a73750800000000000000
+      internalID: 6284676660826868984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_22
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 61
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfcece987a1405bd0800000000000000
+      internalID: -2643540793437131525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_23
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 75
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3a05a9e267d420b0800000000000000
+      internalID: -5754237604045977026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_24
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 80
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fb2cb10544ea98b0800000000000000
+      internalID: -5144548639284384782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_25
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 66
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fa64b9f962f06090800000000000000
+      internalID: -8043162397508867339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_26
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 47
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ed9afc69bb3e17b0800000000000000
+      internalID: -5251694447884067360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_27
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 27
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2997cc7ab3a479c0800000000000000
+      internalID: -3930336553434900181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_28
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 47
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed6be8407bbbd79f0800000000000000
+      internalID: -469012391446792482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_29
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 34
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e87fc9a9fadbfc2d0800000000000000
+      internalID: -3256175443654674546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mela_e4_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 246
+        height: 246
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0601f4c9976e94a4ab0f96d395838131
+      internalID: 815541802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ac3f9eabf0edb194abcd54ef918c2344
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mela_e4_0: -2587417645089052608
+      mela_e4_1: 946775324914958767
+      mela_e4_10: -2789074629606467069
+      mela_e4_11: 4761333470388442712
+      mela_e4_12: 210052300289995331
+      mela_e4_13: -5196520119476464042
+      mela_e4_14: -5634255449716012298
+      mela_e4_15: -9172892824444868871
+      mela_e4_16: 2285409516946757084
+      mela_e4_17: 8647607594038141676
+      mela_e4_18: 5191451582519445824
+      mela_e4_19: -5511531707643001625
+      mela_e4_2: 745589573848782616
+      mela_e4_20: -5413078447903818010
+      mela_e4_21: 6284676660826868984
+      mela_e4_22: -2643540793437131525
+      mela_e4_23: -5754237604045977026
+      mela_e4_24: -5144548639284384782
+      mela_e4_25: -8043162397508867339
+      mela_e4_26: -5251694447884067360
+      mela_e4_27: -3930336553434900181
+      mela_e4_28: -469012391446792482
+      mela_e4_29: -3256175443654674546
+      mela_e4_3: -6666311187033804947
+      mela_e4_30: 815541802
+      mela_e4_4: -4435279088944299581
+      mela_e4_5: -23870768463794683
+      mela_e4_6: 4646730617007576584
+      mela_e4_7: 8684815007184572448
+      mela_e4_8: 5634572925088663004
+      mela_e4_9: -7946559451014651738
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
