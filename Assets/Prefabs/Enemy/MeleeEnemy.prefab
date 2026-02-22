@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2438225446833322569}
   - component: {fileID: 1444421130932947306}
   - component: {fileID: 873580616342287369}
+  - component: {fileID: 3697458141508366827}
   m_Layer: 9
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -178,6 +179,8 @@ MonoBehaviour:
   startingHealth: 3
   iFramesDuration: 0
   numberOfFlashes: 0
+  components:
+  - {fileID: 873580616342287369}
 --- !u!114 &873580616342287369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,9 +195,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MeleeEnemy
   attackCooldown: 2
   range: 2
-  colliderDistance: 0.6
   damage: 2
+  colliderDistance: 0.6
   boxCollider: {fileID: 2438225446833322569}
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &3697458141508366827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107048334826311657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0122e12b87f4d84d8a11694f81fac21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy_Damage
+  damage: 1

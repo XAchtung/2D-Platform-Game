@@ -3,22 +3,21 @@ using UnityEngine;
 public class MeleeEnemy : MonoBehaviour
 {
     [Header("Attack parameters")]
-    [SerializeField] private float attackCooldown;
-    [SerializeField] private float range;
-    [SerializeField] private int damage;
+    [SerializeField] protected float attackCooldown;
+    [SerializeField] protected float range;
+    [SerializeField] protected int damage;
 
     [Header("Collider parameters")]
-    [SerializeField] private float colliderDistance;
-    [SerializeField]private BoxCollider2D boxCollider;
+    [SerializeField] protected float colliderDistance;
+    [SerializeField] protected BoxCollider2D boxCollider;
 
     [Header("Player layer")]
-    [SerializeField]private LayerMask playerLayer;
-    private float cooldownTimer = Mathf.Infinity;
+    [SerializeField] protected LayerMask playerLayer;
+    protected float cooldownTimer = Mathf.Infinity;
 
-    private Animator anim;
-    private Health playerHealth;
-
-    private EnemyPatrol enemyPatrol;
+    protected Animator anim;
+    protected Health playerHealth;
+    protected EnemyPatrol enemyPatrol;
 
     private void Awake()
     {
