@@ -33,6 +33,9 @@ public class Projectile : MonoBehaviour
         hit = true;
         boxcollider.enabled = false;
         animator.SetTrigger("explode");
+
+        if (collision.CompareTag("Enemy"))
+            collision.GetComponent<Health>().TakeDamage(1);
     }
 
     public void SetDirection(float _direction)
