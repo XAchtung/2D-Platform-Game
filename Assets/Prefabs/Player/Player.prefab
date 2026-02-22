@@ -193,6 +193,8 @@ MonoBehaviour:
   components:
   - {fileID: 4602951884093114888}
   - {fileID: 4412544409324364573}
+  deathSound: {fileID: 8300000, guid: a906104c8cbf1c74bb34e0ec95bfd837, type: 3}
+  hurtSound: {fileID: 8300000, guid: a906104c8cbf1c74bb34e0ec95bfd837, type: 3}
 --- !u!114 &4602951884093114888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,6 +220,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  tearsSound: {fileID: 8300000, guid: 97f1eebdd4563c64ebc3b50001f3efd8, type: 3}
 --- !u!114 &4412544409324364573
 MonoBehaviour:
   m_ObjectHideFlags: 0

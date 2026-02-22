@@ -6,6 +6,9 @@ public class RangedEnemy : MeleeEnemy
     [SerializeField] private Transform firepoint;
     [SerializeField] private GameObject[] fireballs;
 
+    [Header("Fireball sound")]
+    [SerializeField] private AudioClip fireballSound;
+
         
     private void Update()
     {
@@ -39,6 +42,7 @@ public class RangedEnemy : MeleeEnemy
 
     private void RangedAttack()
     {
+        SoundManager.instance.PlaySound(fireballSound);
         cooldownTimer = 0;
         fireballs[FindFireball()].transform.position = firepoint.position;
         fireballs[FindFireball()].GetComponent<EnemyProjectile>().ActivateProjectile();
