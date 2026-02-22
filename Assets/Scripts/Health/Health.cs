@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
+    private bool invurnelable;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
+        if (invurnelable) return;
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if(currentHealth > 0)
@@ -57,6 +59,7 @@ public class Health : MonoBehaviour
 
     private IEnumerator Invunerability()
     {
+        invurnelable = true;
         Physics2D.IgnoreLayerCollision(8, 9, true);
         for (int i = 0; i < numberOfFlashes; i++)
         {
@@ -66,6 +69,7 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
         Physics2D.IgnoreLayerCollision(8, 9, false);
+        invurnelable = false;
     }
 
     private void Deactivate()

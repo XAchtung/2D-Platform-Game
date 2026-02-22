@@ -14,7 +14,7 @@ public class Firetrap : MonoBehaviour
     private bool triggered;
     private bool active;
 
-    private Health player;
+    private Health playerHealth;
 
     private void Awake()
     {
@@ -22,12 +22,11 @@ public class Firetrap : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (active && player != null)
+        if (active && playerHealth != null)
         {
-            player.TakeDamage(damage);
-            player = null;
+            playerHealth.TakeDamage(damage);
         }
     }
 
@@ -35,6 +34,7 @@ public class Firetrap : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            playerHealth = collision.GetComponent<Health>();
             if (!triggered)
             {
                 StartCoroutine(ActivateFiretrap());
@@ -45,6 +45,12 @@ public class Firetrap : MonoBehaviour
                 collision.GetComponent<Health>().TakeDamage(damage);
             }
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+            playerHealth = null;
     }
     private IEnumerator ActivateFiretrap()
     {
