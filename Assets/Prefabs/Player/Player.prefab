@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6166595791394268571}
   - component: {fileID: 3566738187530730242}
+  - component: {fileID: 2857299253815711681}
   - component: {fileID: 452610512960226867}
   - component: {fileID: 4892020640634654543}
   - component: {fileID: 4602951884093114888}
@@ -129,6 +130,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &2857299253815711681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6175833732731801112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31bf16fbd2cd163488bdaeed41aef731, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  checkpointSound: {fileID: 8300000, guid: 7bd8ac6a383b9874aa76e2ad3df7dc34, type: 3}
 --- !u!61 &452610512960226867
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -235,12 +249,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   speed: 10
   jumpPower: 20
+  coyoteTime: 0.25
+  extraJumps: 2
+  wallJumpX: 1500
+  wallJumpY: 750
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
   wallLayer:
     serializedVersion: 2
     m_Bits: 128
+  jumpSound: {fileID: 8300000, guid: 306615110b311854295c998e3a2b6e47, type: 3}
 --- !u!50 &4715319772042656245
 Rigidbody2D:
   serializedVersion: 5
