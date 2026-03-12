@@ -138,4 +138,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
     }
+
+    public void AddSpeed(float _Speed)
+    {
+        speed += _Speed;
+    }
 }

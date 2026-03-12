@@ -21,7 +21,10 @@ public class Health : MonoBehaviour
     [Header("Death sound")]
     [SerializeField]private AudioClip deathSound;
     [SerializeField]private AudioClip hurtSound;
-    
+
+    [Header("XP")]
+    public GameObject xpPrefab;
+
     private void Awake()
     {
         currentHealth = startingHealth;
@@ -55,6 +58,7 @@ public class Health : MonoBehaviour
                 anim.SetTrigger("die");
                 dead = true;
                 SoundManager.instance.PlaySound(deathSound);
+                Instantiate(xpPrefab, transform.position, Quaternion.identity);
             }
         }
     }
@@ -62,6 +66,11 @@ public class Health : MonoBehaviour
     public void AddHealth(float _value)
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth); 
+    }
+
+    public void MoreHealth(float _value)
+    {
+        currentHealth += _value;
     }
 
     private IEnumerator Invunerability()

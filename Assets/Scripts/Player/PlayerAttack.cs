@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private float currentDamage = 1f;
     [SerializeField] private float attackCooldown;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] tears;
@@ -25,14 +26,23 @@ public class PlayerAttack : MonoBehaviour
         cooldownTimer += Time.deltaTime;
     }
 
+    public void AddDamage(float amount)
+    {
+        currentDamage += amount;
+        Debug.Log("Zwiêkszono obra¿enia do: " + currentDamage);
+    }
+
     private void Attack()
     {
         SoundManager.instance.PlaySound(tearsSound);
         anim.SetTrigger("Attack");
         cooldownTimer = 0;
 
+        int index = FindTear();
         tears[FindTear()].transform.position = firePoint.position;
         tears[FindTear()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        tears[index].GetComponent<Projectile>().damage = currentDamage;
+        tears[index].SetActive(true);
     }
 
     private int FindTear()
