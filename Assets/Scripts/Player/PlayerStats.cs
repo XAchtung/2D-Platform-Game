@@ -6,7 +6,7 @@ public class PlayerStats : MonoBehaviour
     public int currentXP = 0;
     public int xpToNextLevel = 10;
 
-    [SerializeField]private GameObject levelUpPanel;
+    [SerializeField]private LevelUpManager levelUpPanel;
 
     public void AddExperience(int amount)
     {
@@ -29,7 +29,7 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log("LEVEL UP! Obecny poziom: " + currentLevel);
 
-        levelUpPanel.SetActive(true);
+        levelUpPanel.OpenPanel();
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

@@ -1,41 +1,66 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class LevelUpManager : MonoBehaviour
 {
-    [Header("Pannel settigns")]
-    [SerializeField]private GameObject levelUpPanel;
+    [SerializeField] private GameObject levelUpPanel;
 
-    [Header("Player Prefs")]
-    [SerializeField] private Health health;
-    [SerializeField] private PlayerAttack attack;
-    [SerializeField] private PlayerMovement movement;
+    [Header("Upgrade Pool")]
+    [SerializeField] private List<UpgradeData> allUpgrades;
 
+    [Header("UI Buttons")]
+    [SerializeField] private UpgradeButton[] upgradeButtons;
 
+    [Header("Player Scripts References")]
+    [SerializeField] private Health playerHealth;
+    [SerializeField] private PlayerAttack playerAttack;
+    [SerializeField] private PlayerMovement playerMovement;
 
-    public void SelectHealth()
+    public void OpenPanel()
     {
-        Debug.Log("Zwiêkszono zdrowie!");
-        health.MoreHealth(2);
-        ClosePanel();
+        levelUpPanel.SetActive(true);
+        Time.timeScale = 0f;
+
+        DrawUpgrades();
     }
 
-    public void SelectDamage()
+    private void DrawUpgrades()
     {
-        Debug.Log("Zwiêkszono obra¿enia!");
-        attack.AddDamage(2);
-        ClosePanel();
-    }
+        List<UpgradeData> availableOptions = new List<UpgradeData>(allUpgrades);
 
-    public void SelectSpeed()
+        for (int i = 0; i < upgradeButtons.Length; i++)
+        {
+            if (availableOptions.Count == 0) break;
+
+            int randomIndex = Random.Range(0, availableOptions.Count);
+            UpgradeData selectedUpgrade = availableOptions[randomIndex];
+
+            upgradeButtons[i].SetupButton(selectedUpgrade, this);
+
+            availableOptions.RemoveAt(randomIndex);
+        }
+    }
+    public void ApplyUpgrade(UpgradeData upgrade)
     {
-        Debug.Log("Zwiêkszono prêdkoœæ!");
-        
+        switch (upgrade.type)
+        {
+            case UpgradeData.UpgradeType.Health:
+                playerHealth.AddHealth(upgrade.modifierValue);
+                break;
+            case UpgradeData.UpgradeType.Attack:
+                playerAttack.AddDamage(upgrade.modifierValue);
+                break;
+            case UpgradeData.UpgradeType.Speed:
+                playerMovement.AddSpeed(upgrade.modifierValue);
+                break;
+        }
+
         ClosePanel();
     }
 
     private void ClosePanel()
     {
-        levelUpPanel.SetActive(false);
         Time.timeScale = 1f;
+        levelUpPanel.SetActive(false);
     }
 }
