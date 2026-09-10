@@ -30,14 +30,21 @@ public class LevelUpManager : MonoBehaviour
 
         for (int i = 0; i < upgradeButtons.Length; i++)
         {
-            if (availableOptions.Count == 0) break;
+            if (availableOptions.Count > 0)
+            {
+                upgradeButtons[i].gameObject.SetActive(true);
 
-            int randomIndex = Random.Range(0, availableOptions.Count);
-            UpgradeData selectedUpgrade = availableOptions[randomIndex];
+                int randomIndex = Random.Range(0, availableOptions.Count);
+                UpgradeData selectedUpgrade = availableOptions[randomIndex];
 
-            upgradeButtons[i].SetupButton(selectedUpgrade, this);
-
-            availableOptions.RemoveAt(randomIndex);
+                upgradeButtons[i].SetupButton(selectedUpgrade, this);
+                availableOptions.RemoveAt(randomIndex);
+            }
+            else
+            {
+                // Jeœli skoñczy³y siê unikalne opcje, chowamy nadmiarowy przycisk
+                upgradeButtons[i].gameObject.SetActive(false);
+            }
         }
     }
     public void ApplyUpgrade(UpgradeData upgrade)
@@ -53,6 +60,18 @@ public class LevelUpManager : MonoBehaviour
             case UpgradeData.UpgradeType.Speed:
                 playerMovement.AddSpeed(upgrade.modifierValue);
                 break;
+            case UpgradeData.UpgradeType.DoubleJump:
+                playerMovement.EnableDoubleJump();
+                break;
+            case UpgradeData.UpgradeType.Dash:
+                playerMovement.EnableDash();
+                break;
+        }
+
+        // Jeœli ulepszenie jest jednorazowe, usuwamy je z puli dostêpnych kart
+        if (upgrade.isOneTimeUpgrade)
+        {
+            allUpgrades.Remove(upgrade);
         }
 
         ClosePanel();

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: UpgradeAttack
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
   upgradeName: Strong Potion
-  description: Pernamently adding +5 attack
+  description: Pernamently adding +5 to Attack
   type: 1
   modifierValue: 5

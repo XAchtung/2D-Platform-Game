@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674927e5c68abe7479022dccb48e938e, type: 3}
   m_Name: UpgradeHealth
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeData
-  upgradeName: Strong Potion
-  description: Pernamently adding +5 attack
-  type: 1
-  modifierValue: 5
+  upgradeName: Healthy Diet
+  description: Pernamently adding +5 to Health
+  type: 0
+  modifierValue: 20

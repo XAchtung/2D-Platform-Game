@@ -250,8 +250,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 390ba39545a37584daa99d5822a5b1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  speed: 10
-  jumpPower: 20
+  speed: 8
+  jumpPower: 16
+  canDashUpgrade: 0
+  dashPower: 24
+  dashDuration: 0.2
+  dashCooldown: 1
   coyoteTime: 0.25
   extraJumps: 0
   wallJumpX: 1500
@@ -263,6 +267,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   jumpSound: {fileID: 8300000, guid: 306615110b311854295c998e3a2b6e47, type: 3}
+  dashSound: {fileID: 0}
+  playerLayerName: Player
+  enemyLayerName: Enemy
+  trailRenderer: {fileID: 0}
 --- !u!50 &4715319772042656245
 Rigidbody2D:
   serializedVersion: 5
@@ -278,7 +286,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 7
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
