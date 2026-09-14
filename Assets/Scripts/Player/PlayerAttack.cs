@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float currentDamage = 1f;
-    [SerializeField] private float attackCooldown;
+    [SerializeField] private float attackCooldown = 0.25f;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private GameObject[] tears;
-    [SerializeField]private AudioClip tearsSound;
+    [SerializeField] private AudioClip tearsSound;
+    [SerializeField] private GameObject bulletPrefab; // Twój prefab pocisku
 
     private Animator anim;
     private PlayerMovement playerMovement;
@@ -34,24 +34,34 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        SoundManager.instance.PlaySound(tearsSound);
-        anim.SetTrigger("Attack");
+        if (bulletPrefab == null || firePoint == null) return;
+
         cooldownTimer = 0;
 
-        int index = FindTear();
-        tears[FindTear()].transform.position = firePoint.position;
-        tears[FindTear()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
-        tears[index].GetComponent<Projectile>().damage = currentDamage;
-        tears[index].SetActive(true);
-    }
+        if (anim != null)
+            anim.SetTrigger("Attack");
 
-    private int FindTear()
-    {
-        for(int i = 0; i < tears.Length; i++)
+        if (SoundManager.instance != null && tearsSound != null)
+            SoundManager.instance.PlaySound(tearsSound);
+
+        // 1. Obliczamy pozycjê kursora w œwiecie 2D
+        Vector3 mouseScreen = Input.mousePosition;
+        mouseScreen.z = Mathf.Abs(Camera.main.transform.position.z);
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreen);
+        mouseWorldPos.z = 0f;
+
+        // 2. Liczymy wektor kierunku od lufy do myszki
+        Vector2 shootDirection = ((Vector2)mouseWorldPos - (Vector2)firePoint.position).normalized;
+
+        // 3. Tworzymy nowy pocisk za pomoc¹ Instantiate
+        GameObject newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+        // 4. Przekazujemy obra¿enia oraz kierunek lotu
+        Projectile projectileScript = newBullet.GetComponent<Projectile>();
+        if (projectileScript != null)
         {
-            if (!tears[i].activeInHierarchy)
-                return i;
+            projectileScript.damage = currentDamage;
+            projectileScript.SetDirection(shootDirection);
         }
-        return 0;
     }
 }

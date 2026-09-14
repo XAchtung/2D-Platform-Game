@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [Header ("Health")]
+    [Header("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
     private Animator anim;
     private bool dead;
 
     [Header("iFrames")]
-    [SerializeField]private float iFramesDuration;
-    [SerializeField]private int numberOfFlashes;
+    [SerializeField] private float iFramesDuration;
+    [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRenderer;
 
     [Header("Components")]
@@ -19,11 +19,15 @@ public class Health : MonoBehaviour
     private bool invurnelable;
 
     [Header("Death sound")]
-    [SerializeField]private AudioClip deathSound;
-    [SerializeField]private AudioClip hurtSound;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip hurtSound;
 
     [Header("XP")]
     public GameObject xpPrefab;
+
+    [Header("Points Reward (if Enemy)")]
+    [SerializeField] private int hitPointsReward = 10;
+    [SerializeField] private int killPointsReward = 100;
 
     private void Awake()
     {
@@ -34,38 +38,70 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        if (invurnelable) return;
+        if (invurnelable || dead) return;
+
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
-        if(currentHealth > 0)
+        // Punkty za ka¿de trafienie wroga w stylu CoD (+10 pkt)
+        if (CompareTag("Enemy") && PointsManager.instance != null)
         {
-            anim.SetTrigger("hurt");
+            PointsManager.instance.AddPoints(hitPointsReward);
+        }
+
+        if (currentHealth > 0)
+        {
+            if (anim != null) anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
-            SoundManager.instance.PlaySound(hurtSound);
+            if (SoundManager.instance != null && hurtSound != null)
+                SoundManager.instance.PlaySound(hurtSound);
         }
         else
         {
             if (!dead)
             {
-                
-
-                //deactivate all attached component classes
-                foreach (Behaviour component in components)
-                {
-                    component.enabled = false;
-                }
-                anim.SetBool("Grounded", true);
-                anim.SetTrigger("die");
-                dead = true;
-                SoundManager.instance.PlaySound(deathSound);
-                Instantiate(xpPrefab, transform.position, Quaternion.identity);
+                Die();
             }
+        }
+    }
+
+    private void Die()
+    {
+        dead = true;
+
+        // Wy³¹czenie skryptów ruchu, AI czy ataków
+        foreach (Behaviour component in components)
+        {
+            if (component != null) component.enabled = false;
+        }
+
+        if (anim != null)
+        {
+            anim.SetBool("Grounded", true);
+            anim.SetTrigger("die");
+        }
+
+        if (SoundManager.instance != null && deathSound != null)
+            SoundManager.instance.PlaySound(deathSound);
+
+        if (xpPrefab != null)
+            Instantiate(xpPrefab, transform.position, Quaternion.identity);
+
+        // Logika punktów i fal dla przeciwnika
+        if (CompareTag("Enemy"))
+        {
+            // Punkty za zabójstwo (+100 pkt)
+            if (PointsManager.instance != null)
+                PointsManager.instance.AddPoints(killPointsReward);
+
+            // Odliczenie z fali CoD
+            if (EnemySpawner.instance != null)
+                EnemySpawner.instance.EnemyKilled();
         }
     }
 
     public void AddHealth(float _value)
     {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth); 
+        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
 
     public void MoreHealth(float _value)
@@ -77,34 +113,44 @@ public class Health : MonoBehaviour
     {
         invurnelable = true;
         Physics2D.IgnoreLayerCollision(8, 9, true);
+
         for (int i = 0; i < numberOfFlashes; i++)
         {
-            spriteRenderer.color = new Color(1, 0, 0, 0.5f);
+            if (spriteRenderer != null)
+                spriteRenderer.color = new Color(1, 0, 0, 0.5f);
+
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
-            spriteRenderer.color = Color.white;
+
+            if (spriteRenderer != null)
+                spriteRenderer.color = Color.white;
+
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
+
         Physics2D.IgnoreLayerCollision(8, 9, false);
         invurnelable = false;
     }
 
+    // Wywo³ywane przez Animation Event na koñcu animacji œmierci przeciwnika
     private void Deactivate()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     public void Respawn()
     {
         dead = false;
         AddHealth(startingHealth);
-        anim.ResetTrigger("die");
-        anim.Play("Idle");
+        if (anim != null)
+        {
+            anim.ResetTrigger("die");
+            anim.Play("Idle");
+        }
         StartCoroutine(Invunerability());
 
-        //activate
         foreach (Behaviour component in components)
         {
-            component.enabled = true;
+            if (component != null) component.enabled = true;
         }
     }
 }

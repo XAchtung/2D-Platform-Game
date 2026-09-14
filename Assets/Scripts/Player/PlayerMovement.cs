@@ -47,9 +47,11 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float originalGravity;
     private float horizontalInput;
+    private Camera mainCam;
 
     private void Awake()
     {
+        mainCam = Camera.main; // Pobieramy g³ówn¹ kamerê
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -58,7 +60,6 @@ public class PlayerMovement : MonoBehaviour
         if (trailRenderer == null)
             trailRenderer = GetComponent<TrailRenderer>();
 
-        // Upewniamy siê, ¿e na starcie smuga jest wy³¹czona
         if (trailRenderer != null)
             trailRenderer.emitting = false;
     }
@@ -70,11 +71,24 @@ public class PlayerMovement : MonoBehaviour
 
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
-        // Obrót postaci
-        if (horizontalInput > 0.01f)
-            transform.localScale = Vector3.one;
-        else if (horizontalInput < -0.01f)
-            transform.localScale = new Vector3(-1, 1, 1);
+        // OBRÓT POSTACI ZA MYSZK¥
+        if (mainCam != null)
+        {
+            Vector3 mouseScreen = Input.mousePosition;
+            mouseScreen.z = Mathf.Abs(mainCam.transform.position.z);
+            Vector3 mouseWorldPos = mainCam.ScreenToWorldPoint(mouseScreen);
+
+            float baseScaleX = Mathf.Abs(transform.localScale.x);
+
+            if (mouseWorldPos.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(baseScaleX, transform.localScale.y, transform.localScale.z);
+            }
+            else if (mouseWorldPos.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-baseScaleX, transform.localScale.y, transform.localScale.z);
+            }
+        }
 
         // Animacje
         if (animator != null)

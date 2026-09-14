@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Checkpoint
   - OneWayPlatform
+  - Projectile
   layers:
   - Default
   - TransparentFX
