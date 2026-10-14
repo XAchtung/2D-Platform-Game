@@ -6,13 +6,15 @@ public class PlayerAimWeapon : MonoBehaviour
     [SerializeField] private Transform gunHolder;   // Pivot broni
     [SerializeField] private Transform firePoint;   // Punkt wylotu pocisku
     [SerializeField] private SpriteRenderer gunSprite; // Sprite samej broni
-    [SerializeField] private Transform playerBody;  // G≥Ûwny obiekt gracza (do obracania cia≥a)
+    [SerializeField] private Transform playerBody;  // Gùùwny obiekt gracza (do obracania ciaùa)
 
     [Header("Shooting")]
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private float fireRate = 0.2f;
     [SerializeField] private float damage = 25f;
     [SerializeField] private AudioClip shootSound;
+
+    private float damageBonus;
 
     [Header("Cursor Settings")]
     [SerializeField] private Texture2D crosshairTexture;
@@ -26,7 +28,7 @@ public class PlayerAimWeapon : MonoBehaviour
     {
         mainCam = Camera.main;
 
-        // Jeúli pole playerBody jest puste, pobierz najwyøszego rodzica
+        // Jeùli pole playerBody jest puste, pobierz najwyùszego rodzica
         if (playerBody == null)
             playerBody = transform.root;
     }
@@ -38,12 +40,12 @@ public class PlayerAimWeapon : MonoBehaviour
 
     private void Update()
     {
-        // 1. Obracanie gracza i celowanie broniπ
+        // 1. Obracanie gracza i celowanie broniù
         AimAndFlip();
 
         fireTimer += Time.deltaTime;
 
-        // 2. Strza≥ pod lewym przyciskiem myszy (LPM)
+        // 2. Strzaù pod lewym przyciskiem myszy (LPM)
         if (Input.GetMouseButton(0) && fireTimer >= fireRate)
         {
             Shoot();
@@ -67,13 +69,13 @@ public class PlayerAimWeapon : MonoBehaviour
     {
         if (mainCam == null) return;
 
-        // Pobieramy pozycjÍ kursora w úwiecie gry 2D
+        // Pobieramy pozycjù kursora w ùwiecie gry 2D
         Vector3 mouseScreen = Input.mousePosition;
         mouseScreen.z = Mathf.Abs(mainCam.transform.position.z);
         Vector3 mouseWorldPos = mainCam.ScreenToWorldPoint(mouseScreen);
         mouseWorldPos.z = 0f;
 
-        // 1. OBRACANIE CA£EGO GRACZA
+        // 1. OBRACANIE CAùEGO GRACZA
         if (playerBody != null)
         {
             Vector3 playerScale = playerBody.localScale;
@@ -89,13 +91,13 @@ public class PlayerAimWeapon : MonoBehaviour
             }
         }
 
-        // 2. CELOWANIE BRONI•
+        // 2. CELOWANIE BRONIù
         if (gunHolder != null)
         {
             Vector2 aimDir = (mouseWorldPos - gunHolder.position).normalized;
             float angle = Mathf.Atan2(aimDir.y, aimDir.x) * Mathf.Rad2Deg;
 
-            // Korekta dla odwrÛconego gracza (skala ujemna)
+            // Korekta dla odwrùconego gracza (skala ujemna)
             if (playerBody != null && playerBody.localScale.x < 0)
             {
                 gunHolder.rotation = Quaternion.Euler(0f, 0f, angle + 180f);
@@ -113,13 +115,13 @@ public class PlayerAimWeapon : MonoBehaviour
     {
         if (bulletPrefab == null || firePoint == null || mainCam == null) return;
 
-        // 1. Obliczamy pozycjÍ kursora myszy w úwiecie gry
+        // 1. Obliczamy pozycjù kursora myszy w ùwiecie gry
         Vector3 mouseScreen = Input.mousePosition;
         mouseScreen.z = Mathf.Abs(mainCam.transform.position.z);
         Vector3 mouseWorldPos = mainCam.ScreenToWorldPoint(mouseScreen);
         mouseWorldPos.z = 0f;
 
-        // 2. Liczymy bezpoúredni, czysty kierunek od lufy (firePoint) do kursora myszy
+        // 2. Liczymy bezpoùredni, czysty kierunek od lufy (firePoint) do kursora myszy
         Vector2 shootDirection = ((Vector2)mouseWorldPos - (Vector2)firePoint.position).normalized;
 
         // 3. Tworzymy pocisk
@@ -135,6 +137,32 @@ public class PlayerAimWeapon : MonoBehaviour
 
         if (SoundManager.instance != null && shootSound != null)
             SoundManager.instance.PlaySound(shootSound);
+    }
+
+    public void EquipWeapon(GameObject newBulletPrefab, Sprite newGunSprite = null, float newDamage = -1f, float newFireRate = -1f, AudioClip newShootSound = null)
+    {
+        if (newBulletPrefab != null)
+            bulletPrefab = newBulletPrefab;
+
+        if (newGunSprite != null && gunSprite != null)
+            gunSprite.sprite = newGunSprite;
+
+        if (newDamage > 0f)
+            damage = newDamage + damageBonus;
+
+        if (newFireRate > 0f)
+            fireRate = newFireRate;
+
+        if (newShootSound != null)
+            shootSound = newShootSound;
+
+        fireTimer = fireRate;
+    }
+
+    public void AddDamage(float amount)
+    {
+        damageBonus += amount;
+        damage += amount;
     }
 
     private void OnDisable()

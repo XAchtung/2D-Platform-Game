@@ -16,6 +16,9 @@ public class XPBarUI : MonoBehaviour
 
     void UpdateXPBar()
     {
+        if (playerStats == null || fillImage == null || playerStats.xpToNextLevel <= 0)
+            return;
+
         float fillAmount = (float)playerStats.currentXP / playerStats.xpToNextLevel;
         fillImage.fillAmount = fillAmount;
 

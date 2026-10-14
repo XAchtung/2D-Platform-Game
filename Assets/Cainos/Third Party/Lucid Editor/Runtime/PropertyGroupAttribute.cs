@@ -12,8 +12,9 @@ namespace Cainos.LucidEditor
 
         public PropertyGroupAttribute(string groupPath)
         {
-            this.path = groupPath;
-            name = path.Split('/').Last();
+            this.path = groupPath ?? string.Empty;
+            string[] parts = path.Split('/');
+            name = parts.Length > 0 ? parts[parts.Length - 1] : string.Empty;
             groupDepth = path.Count(x => x == '/');
         }
     }

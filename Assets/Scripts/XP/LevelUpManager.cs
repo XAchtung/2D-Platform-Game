@@ -14,22 +14,48 @@ public class LevelUpManager : MonoBehaviour
     [Header("Player Scripts References")]
     [SerializeField] private Health playerHealth;
     [SerializeField] private PlayerAttack playerAttack;
+    [SerializeField] private PlayerAimWeapon playerAimWeapon;
     [SerializeField] private PlayerMovement playerMovement;
+
+    private void Awake()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+            return;
+
+        if (playerAimWeapon == null)
+            playerAimWeapon = player.GetComponentInChildren<PlayerAimWeapon>();
+        if (playerAttack == null)
+            playerAttack = player.GetComponent<PlayerAttack>();
+        if (playerHealth == null)
+            playerHealth = player.GetComponent<Health>();
+        if (playerMovement == null)
+            playerMovement = player.GetComponent<PlayerMovement>();
+    }
 
     public void OpenPanel()
     {
-        levelUpPanel.SetActive(true);
-        Time.timeScale = 0f;
+        if (levelUpPanel != null)
+            levelUpPanel.SetActive(true);
 
+        Time.timeScale = 0f;
         DrawUpgrades();
     }
 
     private void DrawUpgrades()
     {
-        List<UpgradeData> availableOptions = new List<UpgradeData>(allUpgrades);
+        if (upgradeButtons == null)
+            return;
+
+        List<UpgradeData> availableOptions = allUpgrades != null
+            ? new List<UpgradeData>(allUpgrades)
+            : new List<UpgradeData>();
 
         for (int i = 0; i < upgradeButtons.Length; i++)
         {
+            if (upgradeButtons[i] == null)
+                continue;
+
             if (availableOptions.Count > 0)
             {
                 upgradeButtons[i].gameObject.SetActive(true);
@@ -42,37 +68,44 @@ public class LevelUpManager : MonoBehaviour
             }
             else
             {
-                // Jeúli skoÒczy≥y siÍ unikalne opcje, chowamy nadmiarowy przycisk
                 upgradeButtons[i].gameObject.SetActive(false);
             }
         }
     }
     public void ApplyUpgrade(UpgradeData upgrade)
     {
+        if (upgrade == null)
+            return;
+
         switch (upgrade.type)
         {
             case UpgradeData.UpgradeType.Health:
-                playerHealth.AddHealth(upgrade.modifierValue);
+                if (playerHealth != null)
+                    playerHealth.AddHealth(upgrade.modifierValue);
                 break;
             case UpgradeData.UpgradeType.Attack:
-                playerAttack.AddDamage(upgrade.modifierValue);
+                if (playerAttack != null)
+                    playerAttack.AddDamage(upgrade.modifierValue);
+                if (playerAimWeapon != null)
+                    playerAimWeapon.AddDamage(upgrade.modifierValue);
                 break;
             case UpgradeData.UpgradeType.Speed:
-                playerMovement.AddSpeed(upgrade.modifierValue);
+                if (playerMovement != null)
+                    playerMovement.AddSpeed(upgrade.modifierValue);
                 break;
             case UpgradeData.UpgradeType.DoubleJump:
-                playerMovement.EnableDoubleJump();
+                if (playerMovement != null)
+                    playerMovement.EnableDoubleJump();
                 break;
             case UpgradeData.UpgradeType.Dash:
-                playerMovement.EnableDash();
+                if (playerMovement != null)
+                    playerMovement.EnableDash();
                 break;
         }
 
-        // Jeúli ulepszenie jest jednorazowe, usuwamy je z puli dostÍpnych kart
-        if (upgrade.isOneTimeUpgrade)
-        {
+        // Jeùli ulepszenie jest jednorazowe, usuwamy je z puli dostùpnych kart
+        if (upgrade.isOneTimeUpgrade && allUpgrades != null)
             allUpgrades.Remove(upgrade);
-        }
 
         ClosePanel();
     }
@@ -80,6 +113,7 @@ public class LevelUpManager : MonoBehaviour
     private void ClosePanel()
     {
         Time.timeScale = 1f;
-        levelUpPanel.SetActive(false);
+        if (levelUpPanel != null)
+            levelUpPanel.SetActive(false);
     }
 }

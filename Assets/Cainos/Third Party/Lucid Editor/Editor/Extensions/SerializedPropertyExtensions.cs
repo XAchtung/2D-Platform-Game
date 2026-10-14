@@ -120,11 +120,14 @@ namespace Cainos.LucidEditor
         {
             object obj = GetSerializedPropertyRootObject(property);
             string[] fieldStructure = property.propertyPath.Split('.');
+            if (fieldStructure == null || fieldStructure.Length == 0)
+                return false;
+
             for (int i = 0; i < fieldStructure.Length - 1; i++)
             {
                 obj = GetFieldOrPropertyValue<object>(fieldStructure[i], obj);
             }
-            string fieldName = fieldStructure.Last();
+            string fieldName = fieldStructure[fieldStructure.Length - 1];
 
             return SetFieldOrPropertyValue(fieldName, obj, value);
         }

@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3697458141508366827}
   - component: {fileID: 1747815434469410533}
   - component: {fileID: -8569369648593416855}
+  - component: {fileID: 6759861818812893609}
   m_Layer: 9
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -186,6 +187,8 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: a906104c8cbf1c74bb34e0ec95bfd837, type: 3}
   hurtSound: {fileID: 8300000, guid: a906104c8cbf1c74bb34e0ec95bfd837, type: 3}
   xpPrefab: {fileID: 4555702017388875986, guid: 13fd16a8b75d1714ab083a5343b23cc6, type: 3}
+  hitPointsReward: 10
+  killPointsReward: 100
 --- !u!114 &873580616342287369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,3 +288,30 @@ CapsuleCollider2D:
   m_Offset: {x: -0.011455655, y: -0.4868654}
   m_Size: {x: 0.72102904, y: 1.3969128}
   m_Direction: 0
+--- !u!114 &6759861818812893609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9107048334826311657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ee7ec0769f6c8744a3679a1a66857be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombieAI
+  playerTag: Player
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  moveSpeed: 2.5
+  hopForce: 6
+  wallCheckDistance: 0.25
+  groundCheckDistance: 0.12
+  attackRange: 1.15
+  attackCooldown: 1.25
+  attackDamage: 5
+  attackSound: {fileID: 0}

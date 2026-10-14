@@ -14,12 +14,15 @@ public class UpgradeButton : MonoBehaviour
         assignedUpgrade = data;
         manager = lvlManager;
 
-        nameText.text = data.upgradeName;
-        descriptionText.text = data.description;
+        if (nameText != null)
+            nameText.text = data != null ? data.upgradeName : string.Empty;
+        if (descriptionText != null)
+            descriptionText.text = data != null ? data.description : string.Empty;
     }
 
     public void OnButtonClick()
     {
-        manager.ApplyUpgrade(assignedUpgrade);
+        if (manager != null && assignedUpgrade != null)
+            manager.ApplyUpgrade(assignedUpgrade);
     }
 }

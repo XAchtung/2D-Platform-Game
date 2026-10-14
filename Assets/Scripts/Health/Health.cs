@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
     [Header("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
+    public bool IsDead => dead;
     private Animator anim;
     private bool dead;
 
@@ -42,7 +43,7 @@ public class Health : MonoBehaviour
 
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
-        // Punkty za kaøde trafienie wroga w stylu CoD (+10 pkt)
+        // Punkty za kaùde trafienie wroga w stylu CoD (+10 pkt)
         if (CompareTag("Enemy") && PointsManager.instance != null)
         {
             PointsManager.instance.AddPoints(hitPointsReward);
@@ -68,7 +69,7 @@ public class Health : MonoBehaviour
     {
         dead = true;
 
-        // Wy≥πczenie skryptÛw ruchu, AI czy atakÛw
+        // Wyùùczenie skryptùw ruchu, AI czy atakùw
         foreach (Behaviour component in components)
         {
             if (component != null) component.enabled = false;
@@ -86,17 +87,35 @@ public class Health : MonoBehaviour
         if (xpPrefab != null)
             Instantiate(xpPrefab, transform.position, Quaternion.identity);
 
-        // Logika punktÛw i fal dla przeciwnika
+        // Logika punktùw i fal dla przeciwnika
         if (CompareTag("Enemy"))
         {
-            // Punkty za zabÛjstwo (+100 pkt)
+            // Punkty za zabùjstwo (+100 pkt)
             if (PointsManager.instance != null)
                 PointsManager.instance.AddPoints(killPointsReward);
 
-            // Odliczenie z fali CoD
-            if (EnemySpawner.instance != null)
+            // Odliczenie z fali CoD (WaveManager ma pierwsze?stwo)
+            ZombieAI zombie = GetComponent<ZombieAI>();
+            if (zombie != null)
+            {
+                zombie.NotifyKilled();
+            }
+            else if (WaveManager.instance != null)
+            {
+                WaveManager.instance.EnemyKilled();
+            }
+            else if (EnemySpawner.instance != null)
+            {
                 EnemySpawner.instance.EnemyKilled();
+            }
         }
+    }
+
+    public void SetMaxHealth(float value)
+    {
+        startingHealth = Mathf.Max(1f, value);
+        if (!dead)
+            currentHealth = startingHealth;
     }
 
     public void AddHealth(float _value)
@@ -131,7 +150,7 @@ public class Health : MonoBehaviour
         invurnelable = false;
     }
 
-    // Wywo≥ywane przez Animation Event na koÒcu animacji úmierci przeciwnika
+    // Wywoùywane przez Animation Event na koùcu animacji ùmierci przeciwnika
     private void Deactivate()
     {
         Destroy(gameObject);
